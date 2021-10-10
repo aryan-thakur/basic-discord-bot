@@ -6,12 +6,12 @@ module.exports = (client, aliases, callback) => {
   }
   client.on('messageCreate', (message) => {
     const { content } = message;
-    
+
     aliases.forEach(a => {
       const command = `${prefix}${a}`;
       if(content.startsWith(`${command} `) || content === `${command}`){
-        callback(message);
         console.log('Command '+content+" detected!");
+        callback(message);
       }
       })
   })
