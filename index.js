@@ -38,6 +38,17 @@ client.on("ready", () => {
     }
   })
 
+  command(client, "sticker", (message) => {
+    const ICON_PATH = '../Self/Images/instagram_icon.png';
+    const ICON_NAME = 'instagram';
+    const Guilds = client.guilds.cache;
+    Guilds.forEach(guild => {
+      guild.emojis.create(ICON_PATH, ICON_NAME)
+      .then(emoji => console.log(`Created new emoji with name ${emoji.name}!`))
+      .catch(console.error);
+    })
+  })
+
 });
 
 
